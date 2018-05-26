@@ -1,0 +1,11 @@
+#!/bin/sh
+oldsum=$(cat ~/.04datas);
+newsum=$(md5sum /etc/crontab);
+
+if [ "$oldsum" != "$newsum" ]; then
+	$(echo "The file /etc/crontab was modified !" | mail -s "/etc/crontab file was modified" root);
+	md5sum /etc/crontab > ~/.04datas;
+fi
+
+# Pour programmer la planification, il faut ajouter la ligne suivante au fichier /etc/crontab
+# 0 0 * * *	root	sh ~/04

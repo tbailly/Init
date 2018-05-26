@@ -1,0 +1,2 @@
+#!/bin/sh
+netstat -nr | grep -A2 Internet: | grep default

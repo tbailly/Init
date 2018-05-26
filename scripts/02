@@ -1,0 +1,23 @@
+#!/bin/sh
+if [ ! -d "/var/log" ]; then
+	mkdir /var/log;
+fi
+
+echo "---------- PACKAGE UPDATE AND UPGRADE ---------" >> /var/log/update_script.log
+echo -n "---- Made on: " >> /var/log/update_script.log
+
+date > ./tmpdate.tmptxt
+tail -n 1 ./tmpdate.tmptxt | tr -d '\n' >> /var/log/update_script.log
+rm tmpdate.tmptxt
+
+echo " ----\n" >> /var/log/update_script.log
+
+apt-get -y update >> /var/log/update_script.log
+apt-get -y upgrade >> /var/log/update_script.log
+
+echo "\n" >> /var/log/update_script.log
+
+# Pour programmer la planification, il faut ajouter la ligne suivante au fichier /etc/crontab
+# 0 4 * * 1	root	sh ~/02
+
+# https://www.generation-nt.com/reponses/apt-get-update-apt-get-upgrade-entraide-4129952.html

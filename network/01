@@ -1,0 +1,4 @@
+#!/bin/sh
+ifconfig -l
+
+# ifconfig | grep ": flags" | cut -d ":" -f1

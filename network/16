@@ -1,0 +1,2 @@
+Dans le fichier /etc/hosts, il faut ajouter une ligne a la fin :
+46.19.122.85	intra.42.fr
