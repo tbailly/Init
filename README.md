@@ -1,9 +1,15 @@
 # Init
-Introduction to sysadmin with basic commands and shell scripting
-The `network` exercices must be realized in Mac OS command line without root access.
-The `system` and `scripts` part must be realized in Debian command line
+## Presentation
+Introduction to sysadmin with basic UNIX commands and shell scripting.
 
-##### Setup the Debian VM easily with vagrant on 42 computers
+## Getting started
+### Prerequisites
+* A Computer with Mac OS (no root access needed) for the `network` part.
+* A Computer or VM with Debian (root access needed) for the `system` and `scripts` parts.
+
+### Installing
+Just setup a VM with debian, and get access to command line tool.
+#### Setup the Debian VM easily with vagrant on 42 computers
 ```bash
 mkdir ~/goinfre/vagrant && cd ~/goinfre/vagrant
 
@@ -17,7 +23,10 @@ vagrant plugin install vagrant-vbguest && vagrant up && vagrant vbguest
 
 vagrant ssh
 ```
-##### Once in debian system
+Once in debian system
 ```bash
 sudo passwd root
 ```
+
+## Authors
+* **[Thomas Bailly-Salins](https://github.com/tbailly)** - *All*
