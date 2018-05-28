@@ -1,10 +1,15 @@
 #!/bin/sh
-oldsum=$(cat ~/.04datas);
+if [ ! -f "/etc/crontab.md5" ]; then
+	touch /etc/crontab.md5;
+fi
+
+oldsum=$(cat /etc/crontab.md5);
 newsum=$(md5sum /etc/crontab);
 
 if [ "$oldsum" != "$newsum" ]; then
+	apt-get -y install mailutils >> /dev/null
 	$(echo "The file /etc/crontab was modified !" | mail -s "/etc/crontab file was modified" root);
-	md5sum /etc/crontab > ~/.04datas;
+	md5sum /etc/crontab > /etc/crontab.md5;
 fi
 
 # Pour programmer la planification, il faut ajouter la ligne suivante au fichier /etc/crontab
